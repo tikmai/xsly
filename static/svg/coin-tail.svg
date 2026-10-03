@@ -1,0 +1,62 @@
+<svg viewBox="0 0 100 100" width="48" height="48" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="coinGrad2" cx="50%" cy="42%" r="60%">
+      <stop offset="0%" stop-color="#d4a94e"/>
+      <stop offset="40%" stop-color="#b8860b"/>
+      <stop offset="75%" stop-color="#8b6914"/>
+      <stop offset="100%" stop-color="#5c4010"/>
+    </radialGradient>
+    <filter id="rough2">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" result="noise"/>
+      <feColorMatrix in="noise" type="saturate" values="0" result="grayNoise"/>
+      <feBlend in="SourceGraphic" in2="grayNoise" mode="multiply" result="blended"/>
+      <feComposite in="blended" in2="SourceGraphic" operator="in"/>
+    </filter>
+  </defs>
+
+  <!-- 外圈 + 挖方孔 -->
+  <path fill="url(#coinGrad2)" fill-rule="evenodd" stroke="#5c4010" stroke-width="0.8" d="
+    M 50 3
+    A 47 47 0 1 1 49.99 3
+    Z
+    M 38 38 L 62 38 L 62 62 L 38 62 Z
+  "/>
+  
+  <!-- 内圈凸起 -->
+  <circle cx="50" cy="50" r="33" fill="none" stroke="#a87b1f" stroke-width="0.8" opacity="0.6"/>
+  
+  <!-- 内圈到方孔区域 -->
+  <path fill="#3d2a08" fill-rule="evenodd" d="
+    M 50 17
+    A 33 33 0 1 1 49.99 17
+    Z
+    M 38 38 L 62 38 L 62 62 L 38 62 Z
+  "/>
+  
+  <!-- 方孔边缘 -->
+  <rect x="38" y="38" width="24" height="24" fill="none" stroke="#e8c96a" stroke-width="0.4" opacity="0.4"/>
+
+  <!-- 满文：左侧26，右侧67往上2 -->
+  <g font-family="Noto Sans Mongolian,Microsoft Mongolian Baiti,serif" font-weight="bold" text-anchor="middle">
+    <!-- 阴影 -->
+    <text x="26.3" y="52.3" font-size="12" fill="#3d2a08" opacity="0.4"
+      transform="rotate(-90 26.3 52.3) rotate(180 26.3 52.3)">ᠪᠣᠣ</text>
+    <text x="67.3" y="50.3" font-size="12" fill="#3d2a08" opacity="0.4"
+      transform="rotate(-90 67.3 50.3) rotate(180 67.3 50.3)">ᠴᡳᠣᠸᠠᠨ</text>
+    <!-- 高光 -->
+    <text x="25.7" y="51.7" font-size="12" fill="#e8d48a" opacity="0.3"
+      transform="rotate(-90 25.7 51.7) rotate(180 25.7 51.7)">ᠪᠣᠣ</text>
+    <text x="66.7" y="49.7" font-size="12" fill="#e8d48a" opacity="0.3"
+      transform="rotate(-90 66.7 49.7) rotate(180 66.7 49.7)">ᠴᡳᠣᠸᠠᠨ</text>
+    <!-- 主层 -->
+    <text x="26" y="52" font-size="12" fill="#b8860b"
+      transform="rotate(-90 26 52) rotate(180 26 52)">ᠪᠣᠣ</text>
+    <text x="67" y="50" font-size="12" fill="#b8860b"
+      transform="rotate(-90 67 50) rotate(180 67 50)">ᠴᡳᠣᠸᠠᠨ</text>
+  </g>
+
+  <!-- 包浆纹理 -->
+  <circle cx="50" cy="50" r="47" fill="none" filter="url(#rough2)" opacity="0.15"/>
+  <!-- 边缘磨损高光 -->
+  <circle cx="50" cy="50" r="46" fill="none" stroke="#e8d48a" stroke-width="0.5" opacity="0.3"/>
+</svg>

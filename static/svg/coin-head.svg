@@ -1,0 +1,62 @@
+<svg viewBox="0 0 100 100" width="48" height="48" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="coinGrad1" cx="50%" cy="42%" r="60%">
+      <stop offset="0%" stop-color="#d4a94e"/>
+      <stop offset="40%" stop-color="#b8860b"/>
+      <stop offset="75%" stop-color="#8b6914"/>
+      <stop offset="100%" stop-color="#5c4010"/>
+    </radialGradient>
+    <filter id="rough1">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" result="noise"/>
+      <feColorMatrix in="noise" type="saturate" values="0" result="grayNoise"/>
+      <feBlend in="SourceGraphic" in2="grayNoise" mode="multiply" result="blended"/>
+      <feComposite in="blended" in2="SourceGraphic" operator="in"/>
+    </filter>
+  </defs>
+
+  <!-- 外圈 + 挖方孔 -->
+  <path fill="url(#coinGrad1)" fill-rule="evenodd" stroke="#5c4010" stroke-width="0.8" d="
+    M 50 3
+    A 47 47 0 1 1 49.99 3
+    Z
+    M 38 38 L 62 38 L 62 62 L 38 62 Z
+  "/>
+  
+  <!-- 内圈凸起 -->
+  <circle cx="50" cy="50" r="33" fill="none" stroke="#a87b1f" stroke-width="0.8" opacity="0.6"/>
+  
+  <!-- 内圈到方孔区域 -->
+  <path fill="#3d2a08" fill-rule="evenodd" d="
+    M 50 17
+    A 33 33 0 1 1 49.99 17
+    Z
+    M 38 38 L 62 38 L 62 62 L 38 62 Z
+  "/>
+  
+  <!-- 方孔边缘 -->
+  <rect x="38" y="38" width="24" height="24" fill="none" stroke="#e8c96a" stroke-width="0.4" opacity="0.4"/>
+
+  <!-- 文字：乾往下，隆77 -->
+  <g font-family="KaiTi,STKaiti,serif" font-weight="bold" text-anchor="middle">
+    <!-- 阴影 -->
+    <text x="50.3" y="33.3" font-size="14" fill="#3d2a08" opacity="0.4">乾</text>
+    <text x="50.3" y="77.3" font-size="14" fill="#3d2a08" opacity="0.4">隆</text>
+    <text x="29.3" y="54.3" font-size="13" fill="#3d2a08" opacity="0.4">寶</text>
+    <text x="71.3" y="54.3" font-size="13" fill="#3d2a08" opacity="0.4">通</text>
+    <!-- 高光 -->
+    <text x="49.7" y="32.7" font-size="14" fill="#e8d48a" opacity="0.3">乾</text>
+    <text x="49.7" y="76.7" font-size="14" fill="#e8d48a" opacity="0.3">隆</text>
+    <text x="28.7" y="53.7" font-size="13" fill="#e8d48a" opacity="0.3">寶</text>
+    <text x="70.7" y="53.7" font-size="13" fill="#e8d48a" opacity="0.3">通</text>
+    <!-- 主层 -->
+    <text x="50" y="33" font-size="14" fill="#b8860b">乾</text>
+    <text x="50" y="77" font-size="14" fill="#b8860b">隆</text>
+    <text x="29" y="54" font-size="13" fill="#b8860b">寶</text>
+    <text x="71" y="54" font-size="13" fill="#b8860b">通</text>
+  </g>
+
+  <!-- 包浆纹理 -->
+  <circle cx="50" cy="50" r="47" fill="none" filter="url(#rough1)" opacity="0.15"/>
+  <!-- 边缘磨损高光 -->
+  <circle cx="50" cy="50" r="46" fill="none" stroke="#e8d48a" stroke-width="0.5" opacity="0.3"/>
+</svg>
