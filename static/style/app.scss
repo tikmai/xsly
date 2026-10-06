@@ -4,7 +4,18 @@
    （与 uni.scss 注入的同名变量保持一致；改默认色只需改 uni.scss 里的 $theme，此处仅在独立编译时兜底）
    ============================================================ */
 $theme: blue !default;
-@import 'sass-colors';
+/**
+ * 六套主题名 → hex 对照表（与 types/Theme.ts 的 PALETTE 保持一致）
+ * 供下方通过 map-get($theme-colors, $theme) 取值
+ */
+$theme-colors: (
+  red: #e8b8b8,
+  pink: #d989a8,
+  orange: #ecd1ab,
+  green: #98c4cf,
+  blue: #A6BFE8,
+  purple: #D4BFE8
+);
 $theme-color: map-get($theme-colors, $theme) !default; /* blue = #A6BFE8 */
 $theme-color-50: rgba($theme-color, 0.5) !default;
 
